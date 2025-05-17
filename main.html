@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html data-wf-page="A-EYE" lang="en">
-
+<!--paano ko po i2 ipush-->
 <head>
   <meta charset="utf-8" />
   <title>A-EYE: Cataract Detection Tool | System Prototype by Group 4</title>
@@ -10,6 +10,11 @@
   <link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect" />
   <link href="static/images/favicon.svg" rel="shortcut icon" type="image/x-icon" />
   <link href="static/images/favicon.svg" rel="apple-touch-icon" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+  />
 </head>
 
 <body class="color-mode-dark">
@@ -55,7 +60,7 @@
       <div class="preloader_wrapper">
         <div class="preloader_select"
           style="-webkit-transform:translate3d(0, 4rem, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 4rem, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 4rem, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 4rem, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0">
-          <div class="preloader_button" data-spline-trigger="pageload" data-w-id="preload"
+          <div class="preloader_button" data-spline-trigger="pageload" data-w-id="df6c3a0c-f11b-c7f7-59ba-7a17bd25c2aa"
             scramble-btn="">
           </div>
         </div>
@@ -71,9 +76,9 @@
                 <img src="static/images/logo.svg" style="width: 50%;"/>
               </a>
             </div>
-            <div class="navbar_col is-title " style="grid-column: span 4; margin-left: -30px">
+            <div class="navbar_col is-title" style="grid-column: span 4; margin-left: -30px">
               <div class="text-size-regular" scramble-hover="" style="width: 100%;">
-                a-eye: cataract SEVERITY CLASSIFICATION tool
+                a-eye: cataract classification tool
               </div>
             </div>
             <div class="navbar_col" style="grid-column: 9; margin-left: 30px;">
@@ -110,9 +115,6 @@
 
       <header class="section-main" id="section_hero">
         <div class="main_container">
-          
-          <h6 class="heading-m disclaimer" scramble-hover="">Disclaimer: This system is intended for clinician use only. Self-Diagnosis is not promoted.</h6>
-
           <div class="main_spline" id="spline-wrapper" style="opacity:0">
             <div class="main_spline-scene" data-animation-type="spline"
               data-spline-url="https://prod.spline.design/jsJh4fDj5cbMRzij/scene.splinecode" id="spline-bg"
@@ -125,8 +127,65 @@
           </div>
           <div class="main-content">
             <!-- WRITE HERE @Kaye -->
-              <p> write main page content here </p>
+             <div class="min-h-screen flex items-center justify-center px-4">
+      <div class="bg-gray-800 rounded-2xl shadow-xl grid grid-cols-1 md:grid-cols-2 gap-8 p-8 max-w-4xl w-full">
+        
+        <!-- LEFT: instructions + upload -->
+        <div class="flex flex-col justify-between space-y-6">
+          <div class="text-center md:text-left space-y-2">
+            <p class="uppercase font-semibold text-sm tracking-wide">
+              To begin classification, please upload a clear eye image.
+            </p>
+            <p class="uppercase font-semibold text-sm tracking-wide">
+              Pupil must be visible and centered.
+            </p>
+          </div>
+          
+          <div class="bg-gray-700 rounded-lg p-4 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+              <i class="fas fa-cloud-upload-alt text-gray-400 text-2xl"></i>
+              <div>
+                <p class="text-gray-300 font-semibold text-xs uppercase tracking-wide">
+                  Drag &amp; Drop File Here
+                </p>
+                <p class="text-gray-500 text-[10px] leading-tight">
+                  Limit 30 MB – PNG, JPG, JPEG
+                </p>
+              </div>
+            </div>
+            <button
+            id="browseBtn"
+            class="bg-gray-600 hover:bg-gray-500 text-gray-200 text-xs font-semibold rounded-md px-4 py-2 transition"
+            type="button">
+            Browse
+            </button>
+            <input
+            type="file"
+            id="fileInput"
+            accept=".png, .jpg, .jpeg"
+            class="hidden"
+          />
+          <p id="errorMsg" class="text-red-500 text-xs mt-2"></p>
+          </div>
+          
+          <p class="text-center text-gray-500 text-[10px]">
+            Note: Results are generated in real-time. Please allow a few seconds…
+          </p>
+        </div>
+    
+<!-- here stop here -->
+        <!-- RIGHT: preview + run button -->
+      <div class="flex flex-col items-center space-y-6">
+        <div class="w-48 h-48 bg-gray-700 rounded-lg overflow-hidden">
+          <img
+          id="previewImg"
+          src="#"
+          alt="Preview"
+          class="hidden w-48 h-48 object-cover rounded-lg mt-4"
+        />
+        </div>
               <a href="results.html">
+                
                 <button class="proceed-button" >
                   <div class="dot bg-color-green"></div>
                   Run Diagnosis
@@ -139,12 +198,63 @@
     </div>
   </div>
 
+  <script>
+  (function(){
+    const MAX_SIZE = 30 * 1024 * 1024; // 30 MB
+    const VALID_TYPES = ['image/png', 'image/jpeg', 'image/jpg'];
+    
+    const fileInput  = document.getElementById('fileInput');
+    const browseBtn  = document.getElementById('browseBtn');
+    const errorMsg   = document.getElementById('errorMsg');
+    const previewImg = document.getElementById('previewImg');
+    const runBtn     = document.getElementById('runBtn'); // your Run Diagnosis button
+    
+    // Open file dialog
+    browseBtn.addEventListener('click', () => fileInput.click());
+    
+    // On file select
+    fileInput.addEventListener('change', () => {
+      const file = fileInput.files[0];
+      errorMsg.textContent = '';
+      previewImg.classList.add('hidden');
+      if (runBtn) runBtn.disabled = true;
+      
+      if (!file) return;
+      
+      // Type check
+      if (!VALID_TYPES.includes(file.type)) {
+        errorMsg.textContent = 'Only PNG, JPG or JPEG files are allowed.';
+        fileInput.value = '';
+        return;
+      }
+      
+      // Size check
+      if (file.size > MAX_SIZE) {
+        errorMsg.textContent = 'File is too large. Maximum size is 30 MB.';
+        fileInput.value = '';
+        return;
+      }
+      
+      // Show preview + enable run
+      const reader = new FileReader();
+      reader.onload = e => {
+        previewImg.src = e.target.result;
+        previewImg.classList.remove('hidden');
+        if (runBtn) runBtn.disabled = false;
+      };
+      reader.readAsDataURL(file);
+    });
+  })();
+</script>
+
   <script crossorigin="anonymous" src="static/js/jquery-3.5.1.js" type="text/javascript"></script>
   <script src="static/js/app.js" type="text/javascript"></script>
   <script src="static/js/transitions.js" type="text/javascript"></script>
   <script src="static/js/transition.js" type="text/javascript"></script>
   <script src="static/js/animations.js" type="text/javascript"></script>
   <script src="static/js/spline.js" type="text/javascript"></script>
+  
+  
   <!-- <script>
     $(document).ready(function (event) {
       $("body").prepend($("gtag"));
@@ -167,107 +277,8 @@
   </script>
   <!-- Scramble Pageload & Hover -->
   <script>
-    $(document).ready(function() {
-        $("*:visible").not("[scramble-hover], .no-scramble").each(function() {
-            const t = $(this);
-            0 === t.children().length && "" !== t.text().trim() && function(t) {
-                const e = t.getBoundingClientRect();
-                return e.top >= 0 && e.left >= 0 && e.bottom <= (window.innerHeight || document.documentElement.clientHeight) && e.right <= (window.innerWidth || document.documentElement.clientWidth)
-            }(this) && (function(t) {
-                t.contents().filter(function() {
-                    return 3 === this.nodeType && "" !== this.nodeValue.trim()
-                }).each(function() {
-                    const t = $(this).text();
-                    $(this).replaceWith(`<span class="wrapped-text">${t}</span>`)
-                })
-            }(t), t.find(".wrapped-text").each(function() {
-                const t = $(this),
-                    e = t.text();
-                gsap.fromTo(t, {
-                    scrambleText: {
-                        text: e,
-                        chars: "abcdefghijklmnopqrstuvwxyz!@#$%^&*-_+=;:<>",
-                        speed: 1
-                    }
-                }, {
-                    scrambleText: {
-                        text: e,
-                        chars: "abcdefghijklmnopqrstuvwxyz!@#$%^&*-_+=;:<>",
-                        speed: 1
-                    },
-                    duration: 1,
-                    delay: .1,
-                    overwrite: !0
-                })
-            }))
-        }), $("[scramble-hover]").each(function() {
-            let t = $(this),
-                e = t.text();
-            t.data("originalText", e);
-            let i = t.outerWidth();
-            t.data("originalWidth", i), t.css("width", i), t.data("isAnimating", !1), gsap.fromTo(t, {
-                scrambleText: {
-                    text: e,
-                    chars: "abcdefghijklmnopqrstuvwxyz!@#$%^&*-_+=;:<>",
-                    speed: 1
-                }
-            }, {
-                scrambleText: {
-                    text: e,
-                    chars: "abcdefghijklmnopqrstuvwxyz!@#$%^&*-_+=;:<>",
-                    speed: 1
-                },
-                duration: 1,
-                delay: .1,
-                overwrite: !0
-            })
-        }), $("[scramble-hover]").hover(function() {
-            let t = $(this);
-            if (t.data("isAnimating")) return;
-            t.data("isAnimating", !0);
-            let e = t.data("originalText");
-            gsap.to(t, {
-                scrambleText: {
-                    text: e,
-                    chars: "abcdefghijklmnopqrstuvwxyz!@#$%^&*-_+=;:<>",
-                    speed: .5
-                },
-                duration: .5,
-                onComplete: function() {
-                    t.data("isAnimating", !1)
-                }
-            })
-        }, function() {
-            $(this).data("isAnimating", !1)
-        }), $("[scramble-btn]").each(function() {
-            let t = $(this).find("[scramble-hover]:first");
-            if (t.length) {
-                let e = t.text();
-                t.data("originalText", e), t.data("isAnimating", !1)
-            }
-        }), $("[scramble-btn]").hover(function() {
-            let t = $(this).find("[scramble-hover]:first");
-            if (t.length && !t.data("isAnimating")) {
-                t.data("isAnimating", !0);
-                let e = t.data("originalText");
-                gsap.to(t, {
-                    scrambleText: {
-                        text: e,
-                        chars: "abcdefghijklmnopqrstuvwxyz!@#$%^&*-_+=;:<>",
-                        speed: .5
-                    },
-                    duration: .5,
-                    onComplete: function() {
-                        t.data("isAnimating", !1)
-                    }
-                })
-            }
-        }, function() {
-            $(this).find("[scramble-hover]:first").data("isAnimating", !1)
-        })
-    });
-</script>
-
+    $(document).ready((function () { $("*:visible").not("[scramble-hover]").each((function () { const t = $(this); 0 === t.children().length && "" !== t.text().trim() && function (t) { const e = t.getBoundingClientRect(); return e.top >= 0 && e.left >= 0 && e.bottom <= (window.innerHeight || document.documentElement.clientHeight) && e.right <= (window.innerWidth || document.documentElement.clientWidth) }(this) && (function (t) { t.contents().filter((function () { return 3 === this.nodeType && "" !== this.nodeValue.trim() })).each((function () { const t = $(this).text(); $(this).replaceWith(`<span class="wrapped-text">${t}</span>`) })) }(t), t.find(".wrapped-text").each((function () { const t = $(this), e = t.text(); gsap.fromTo(t, { scrambleText: { text: e, chars: "abcdefghijklmnopqrstuvwxyz!@#$%^&*-_+=;:<>", speed: 1 } }, { scrambleText: { text: e, chars: "abcdefghijklmnopqrstuvwxyz!@#$%^&*-_+=;:<>", speed: 1 }, duration: 1, delay: .1, overwrite: !0 }) }))) })), $("[scramble-hover]").each((function () { let t = $(this), e = t.text(); t.data("originalText", e); let i = t.outerWidth(); t.data("originalWidth", i), t.css("width", i), t.data("isAnimating", !1), gsap.fromTo(t, { scrambleText: { text: e, chars: "abcdefghijklmnopqrstuvwxyz!@#$%^&*-_+=;:<>", speed: 1 } }, { scrambleText: { text: e, chars: "abcdefghijklmnopqrstuvwxyz!@#$%^&*-_+=;:<>", speed: 1 }, duration: 1, delay: .1, overwrite: !0 }) })), $("[scramble-hover]").hover((function () { let t = $(this); if (t.data("isAnimating")) return; t.data("isAnimating", !0); let e = t.data("originalText"); gsap.to(t, { scrambleText: { text: e, chars: "abcdefghijklmnopqrstuvwxyz!@#$%^&*-_+=;:<>", speed: .5 }, duration: .5, onComplete: function () { t.data("isAnimating", !1) } }) }), (function () { $(this).data("isAnimating", !1) })), $("[scramble-btn]").each((function () { let t = $(this).find("[scramble-hover]:first"); if (t.length) { let e = t.text(); t.data("originalText", e), t.data("isAnimating", !1) } })), $("[scramble-btn]").hover((function () { let t = $(this).find("[scramble-hover]:first"); if (t.length && !t.data("isAnimating")) { t.data("isAnimating", !0); let e = t.data("originalText"); gsap.to(t, { scrambleText: { text: e, chars: "abcdefghijklmnopqrstuvwxyz!@#$%^&*-_+=;:<>", speed: .5 }, duration: .5, onComplete: function () { t.data("isAnimating", !1) } }) } }), (function () { $(this).find("[scramble-hover]:first").data("isAnimating", !1) })) }));
+  </script>
 
 
   <!-- Spline Performance -->
