@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html data-wf-page="A-EYE" lang="en">
-<!--paano ko po i2 ipush-->
+<!-- paano ko po i2 ipush -->
 <head>
   <meta charset="utf-8" />
   <title>A-EYE: Cataract Detection Tool | System Prototype by Group 4</title>
   <meta content="width=device-width, initial-scale=1" name="viewport" />
   <link href="static/styles.css" rel="stylesheet" type="text/css" />
+  <link href="static/responsive.css" rel="stylesheet" type="text/css" />
   <link href="https://fonts.googleapis.com" rel="preconnect" />
   <link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect" />
   <link href="static/images/favicon.svg" rel="shortcut icon" type="image/x-icon" />
   <link href="static/images/favicon.svg" rel="apple-touch-icon" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
 
 <body class="color-mode-dark">
@@ -27,31 +25,6 @@
             text-decoration: inherit;
             font-size: inherit;
           }
-
-          /* add css here if u need to add some */
-          .main-content {
-            grid-column-gap: .5rem;
-            grid-row-gap: .5rem;
-            border: 1px solid var(--_theme---body-background);
-            background-color: var(--_theme---card-background);
-            border-radius: .5rem;
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            width: 130vh;
-            height: 60vh;
-            padding: 50px; 
-            position: absolute; 
-            top: 50%;
-            left: 50%; 
-            transform: translate(-50%, -50%);
-            overflow: hidden;
-          }
-
-
         </style>
       </div>
     </div>
@@ -59,193 +32,189 @@
     <div class="preloader">
       <div class="preloader_wrapper">
         <div class="preloader_select"
-          style="-webkit-transform:translate3d(0, 4rem, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 4rem, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 4rem, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 4rem, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0">
-          <div class="preloader_button" data-spline-trigger="pageload" data-w-id="df6c3a0c-f11b-c7f7-59ba-7a17bd25c2aa"
-            scramble-btn="">
+             style="-webkit-transform:translate3d(0, 4rem, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                    -moz-transform:translate3d(0, 4rem, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                    -ms-transform:translate3d(0, 4rem, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                    transform:translate3d(0, 4rem, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                    opacity:0">
+          <div class="preloader_button"
+               data-spline-trigger="pageload"
+               data-w-id="df6c3a0c-f11b-c7f7-59ba-7a17bd25c2aa"
+               scramble-btn="">
           </div>
         </div>
       </div>
     </div>
 
     <div class="main-wrapper">
-      <div class="nav">
+      <!-- Fixed Navbar -->
+      <nav class="nav">
         <div class="padding-global">
           <div class="navbar">
-            <div class="navbar_logo-col">
-              <a aria-current="page" class="navbar_logo w-inline-block w--current" href="/">
-                <img src="static/images/logo.svg" style="width: 50%;"/>
+            <div class="navbar_logo-col" style="display: flex; justify-content: flex-start; align-items: center;">
+              <a href="/" class="navbar_logo w-inline-block w--current">
+                <img src="static/images/logo.svg" class="navbar-logo" alt="Logo" />
               </a>
             </div>
-            <div class="navbar_col is-title" style="grid-column: span 4; margin-left: -30px">
-              <div class="text-size-regular" scramble-hover="" style="width: 100%;">
+
+            <div class="navbar_col is-title" style="display: flex; align-items: center; flex: 2; justify-content: flex-start;">
+              <div class="text-size-regular" scramble-hover style="margin: 0;">
                 a-eye: cataract classification tool
               </div>
             </div>
-            <div class="navbar_col" style="grid-column: 9; margin-left: 30px;">
-              <div class="navbar_link is-nav" scramble-btn="">
-                <a href="index.html" class="text-size-regular" scramble-hover="">
-                  home
-                </a>
+
+            <div class="navbar_col" style="display: flex; align-items: center; justify-content: center;">
+              <div class="navbar_link is-nav" scramble-btn>
+                <a href="index.html" class="text-size-regular" scramble-hover>home</a>
               </div>
             </div>
-            <div class="navbar_col" style="grid-column: 10;">
-              <div class="navbar_link is-nav" scramble-btn="">
-                <div class="text-size-regular" scramble-hover="">
-                  the model
-                </div>
+
+            <div class="navbar_col" style="display: flex; align-items: center; justify-content: center;">
+              <div class="navbar_link is-nav" scramble-btn>
+                <a href="#" class="text-size-regular" scramble-hover>the model</a>
               </div>
             </div>
-            <div class="navbar_col" style="grid-column: 11;">
-              <div class="navbar_link is-nav" scramble-btn="">
-                <div class="text-size-regular" scramble-hover="">
-                  about
-                </div>
+
+            <div class="navbar_col" style="display: flex; align-items: center; justify-content: center;">
+              <div class="navbar_link is-nav" scramble-btn>
+                <a href="#" class="text-size-regular" scramble-hover>about</a>
               </div>
             </div>
-            <div class="navbar_col is-last" style="padding-right: 50px; margin-left: -40px;">
-              <div class="navbar_link is-nav" scramble-btn="">
-                <div class="text-size-regular" scramble-hover="">
-                  contact
-                </div>
+
+            <div class="navbar_col is-last" style="display: flex; align-items: center; justify-content: flex-end;">
+              <div class="navbar_link is-nav" scramble-btn>
+                <a href="#" class="text-size-regular" scramble-hover style="margin-left: -100px; margin-top: 15px;">contact</a>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </nav>
 
       <header class="section-main" id="section_hero">
         <div class="main_container">
           <div class="main_spline" id="spline-wrapper" style="opacity:0">
-            <div class="main_spline-scene" data-animation-type="spline"
-              data-spline-url="https://prod.spline.design/jsJh4fDj5cbMRzij/scene.splinecode" id="spline-bg"
-              style="display:none">
-              <canvas>
-              </canvas>
+            <div class="main_spline-scene"
+                 data-animation-type="spline"
+                 data-spline-url="https://prod.spline.design/jsJh4fDj5cbMRzij/scene.splinecode"
+                 id="spline-bg"
+                 style="display:none">
+              <canvas></canvas>
             </div>
-            <img alt="Globe visual" class="main_spline-placeholder" loading="eager"
-              sizes="(max-width: 2808px) 100vw, 2808px" src="static/images/spline_placeholder.webp" style="opacity:1" />
+            <img alt="Globe visual"
+                 class="main_spline-placeholder"
+                 loading="eager"
+                 sizes="(max-width: 2808px) 100vw, 2808px"
+                 src="static/images/spline_placeholder.webp"
+                 style="opacity:1" />
           </div>
-          <div class="main-content">
+
+          <div class="main-content w-full px-4 py-8 sm:px-6 lg:px-8 flex justify-center items-center min-h-screen">
             <!-- WRITE HERE @Kaye -->
-             <div class="min-h-screen flex items-center justify-center px-4">
-      <div class="bg-gray-800 rounded-2xl shadow-xl grid grid-cols-1 md:grid-cols-2 gap-8 p-8 max-w-4xl w-full">
-        
-        <!-- LEFT: instructions + upload -->
-        <div class="flex flex-col justify-between space-y-6">
-          <div class="text-center md:text-left space-y-2">
-            <p class="uppercase font-semibold text-sm tracking-wide">
-              To begin classification, please upload a clear eye image.
-            </p>
-            <p class="uppercase font-semibold text-sm tracking-wide">
-              Pupil must be visible and centered.
-            </p>
-          </div>
+            <div class="min-h-screen flex items-center justify-center px-4">
+              <div class="bg-gray-800 rounded-2xl shadow-xl grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-6 p-4 sm:p-6 md:p-8 max-w-5xl w-full">
+                <!-- LEFT: instructions + upload -->
+                <div class="flex flex-col justify-between space-y-6">
+                  <div class="text-center md:text-left space-y-2">
+                    <p class="uppercase font-semibold text-sm tracking-wide">
+                      To begin classification, please upload a clear eye image.
+                    </p>
+                    <p class="uppercase font-semibold text-sm tracking-wide">
+                      Pupil must be visible and centered.
+                    </p>
+                  </div>
           
-          <div class="bg-gray-700 rounded-lg p-4 flex items-center justify-between">
-            <div class="flex items-center space-x-3">
-              <i class="fas fa-cloud-upload-alt text-gray-400 text-2xl"></i>
-              <div>
-                <p class="text-gray-300 font-semibold text-xs uppercase tracking-wide">
-                  Drag &amp; Drop File Here
-                </p>
-                <p class="text-gray-500 text-[10px] leading-tight">
-                  Limit 30 MB – PNG, JPG, JPEG
-                </p>
+              <div class="bg-gray-700 rounded-lg p-4 flex items-center gap-4">
+                <div class="flex items-center space-x-3">
+                  <i class="fas fa-cloud-upload-alt text-gray-400 text-2xl"></i>
+                  <div>
+                    <p class="text-gray-300 font-semibold text-xs uppercase tracking-wide">
+                      Drag & Drop File Here
+                    </p>
+                    <p class="text-gray-500 text-[10px] leading-tight">
+                      Limit 30 MB – PNG, JPG, JPEG
+                    </p>
+                  </div>
+                </div>
+
+                <button
+                  id="browseBtn"
+                  class="ml-auto bg-gray-600 hover:bg-gray-500 text-gray-200 text-xs font-semibold rounded-md px-3 py-2 transition"
+                  type="button">
+                  Browse
+                </button>
+                <input
+                  type="file"
+                  id="fileInput"
+                  accept=".png, .jpg, .jpeg"
+                  class="hidden"
+                />
               </div>
+
+              <p class="text-center text-gray-500 text-[10px]">
+                Note: Results are generated in real-time. Please allow a few seconds…
+              </p>
             </div>
-            <button
-            id="browseBtn"
-            class="bg-gray-600 hover:bg-gray-500 text-gray-200 text-xs font-semibold rounded-md px-4 py-2 transition"
-            type="button">
-            Browse
-            </button>
-            <input
-            type="file"
-            id="fileInput"
-            accept=".png, .jpg, .jpeg"
-            class="hidden"
-          />
-          <p id="errorMsg" class="text-red-500 text-xs mt-2"></p>
-          </div>
-          
-          <p class="text-center text-gray-500 text-[10px]">
-            Note: Results are generated in real-time. Please allow a few seconds…
-          </p>
-        </div>
-    
-<!-- here stop here -->
-        <!-- RIGHT: preview + run button -->
-      <div class="flex flex-col items-center space-y-6">
-        <div class="w-48 h-48 bg-gray-700 rounded-lg overflow-hidden">
-          <img
-          id="previewImg"
-          src="#"
-          alt="Preview"
-          class="hidden w-48 h-48 object-cover rounded-lg mt-4"
-        />
-        </div>
+
+            <!-- here stop here -->
+            <!-- RIGHT: preview + run button -->
+            <div class="flex flex-col items-center space-y-6">
+              <div class="w-36 h-36 sm:w-44 sm:h-44 md:w-48 md:h-48 bg-gray-700 rounded-lg overflow-hidden">
+                <img
+                  id="previewImg"
+                  src="#"
+                  alt="Preview"
+                  class="hidden w-full h-full object-cover rounded-lg"
+                />
+              </div>
+
               <a href="results.html">
-                
-                <button class="proceed-button" >
+                <button class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-lg text-sm sm:text-base w-full flex items-center justify-center gap-2">
                   <div class="dot bg-color-green"></div>
                   Run Diagnosis
                 </button>
               </a>
+            </div>
           </div>
-      </div>
         </div>
       </header>
     </div>
   </div>
 
   <script>
-  (function(){
-    const MAX_SIZE = 30 * 1024 * 1024; // 30 MB
-    const VALID_TYPES = ['image/png', 'image/jpeg', 'image/jpg'];
-    
-    const fileInput  = document.getElementById('fileInput');
-    const browseBtn  = document.getElementById('browseBtn');
-    const errorMsg   = document.getElementById('errorMsg');
-    const previewImg = document.getElementById('previewImg');
-    const runBtn     = document.getElementById('runBtn'); // your Run Diagnosis button
-    
-    // Open file dialog
-    browseBtn.addEventListener('click', () => fileInput.click());
-    
-    // On file select
-    fileInput.addEventListener('change', () => {
-      const file = fileInput.files[0];
-      errorMsg.textContent = '';
-      previewImg.classList.add('hidden');
-      if (runBtn) runBtn.disabled = true;
+    (function(){
+      const MAX_SIZE = 30 * 1024 * 1024; // 30 MB
+      const VALID_TYPES = ['image/png', 'image/jpeg', 'image/jpg'];
       
-      if (!file) return;
+      const fileInput  = document.getElementById('fileInput');
+      const browseBtn  = document.getElementById('browseBtn');
+      const errorMsg   = document.getElementById('errorMsg');
+      const previewImg = document.getElementById('previewImg');
+      const runBtn     = document.getElementById('runBtn'); // your Run Diagnosis button
       
-      // Type check
-      if (!VALID_TYPES.includes(file.type)) {
-        errorMsg.textContent = 'Only PNG, JPG or JPEG files are allowed.';
-        fileInput.value = '';
-        return;
-      }
-      
-      // Size check
-      if (file.size > MAX_SIZE) {
-        errorMsg.textContent = 'File is too large. Maximum size is 30 MB.';
-        fileInput.value = '';
-        return;
-      }
-      
-      // Show preview + enable run
-      const reader = new FileReader();
-      reader.onload = e => {
-        previewImg.src = e.target.result;
-        previewImg.classList.remove('hidden');
-        if (runBtn) runBtn.disabled = false;
-      };
-      reader.readAsDataURL(file);
-    });
-  })();
-</script>
+      // Open file dialog
+      browseBtn.addEventListener('click', () => fileInput.click());
+        
+      // On file select
+      fileInput.addEventListener('change', () => {
+        const file = fileInput.files[0];
+        if (!file) return;
+
+        const validTypes = ['image/png', 'image/jpeg', 'image/jpg'];
+        if (!validTypes.includes(file.type)) {
+          alert('Please upload a valid image file (PNG, JPG, JPEG).');
+          fileInput.value = ''; // Reset the input so the same file can trigger it again
+          return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          previewImg.src = e.target.result;
+          previewImg.classList.remove('hidden');
+          fileInput.value = ''; // Reset input even after successful upload
+        };
+        reader.readAsDataURL(file);
+      });
+  </script>
 
   <script crossorigin="anonymous" src="static/js/jquery-3.5.1.js" type="text/javascript"></script>
   <script src="static/js/app.js" type="text/javascript"></script>
@@ -434,6 +403,34 @@
   <!-- GSAP Slider-->
   <script>
     document.addEventListener("DOMContentLoaded", (e => { gsap.registerPlugin(Draggable, InertiaPlugin), function () { document.querySelector('[data-slider="list"]'); const e = gsap.utils.toArray('[data-slider="slide"]'), t = document.querySelector('[data-slider="button-next"]'), r = document.querySelector('[data-slider="button-prev"]'), n = document.querySelector('[data-slide-count="total"]'), a = document.querySelector('[data-slide-count="step"]'), o = a.parentElement; let s; const i = e.length; n.textContent = i < 10 ? `0${i}` : i, o.innerHTML = "", e.forEach(((e, t) => { const r = a.cloneNode(!0); r.textContent = t + 1 < 10 ? `0${t + 1}` : t + 1, o.appendChild(r) })); const l = o.querySelectorAll('[data-slide-count="step"]'), d = function (e, t) { let r; return e = gsap.utils.toArray(e), t = t || {}, gsap.context((() => { let n, a, o, s = t.onChange, i = 0, l = gsap.timeline({ repeat: t.repeat, onUpdate: s && function () { let t = l.closestIndex(); i !== t && (i = t, s(e[t], t)) }, paused: t.paused, defaults: { ease: "none" }, onReverseComplete: () => l.totalTime(l.rawTime() + 100 * l.duration()) }), d = e.length, p = e[0].offsetLeft, u = [], g = [], c = [], f = [], m = 0, x = !1, h = t.center, v = 100 * (t.speed || 1), w = !1 === t.snap ? e => e : gsap.utils.snap(t.snap || 1), b = 0, y = !0 === h ? e[0].parentNode : gsap.utils.toArray(h)[0] || e[0].parentNode, P = () => e[d - 1].offsetLeft + f[d - 1] / 100 * g[d - 1] - p + c[0] + e[d - 1].offsetWidth * gsap.getProperty(e[d - 1], "scaleX") + (parseFloat(t.paddingRight) || 0), L = () => { let t, r = y.getBoundingClientRect(); e.forEach(((e, n) => { g[n] = parseFloat(gsap.getProperty(e, "width", "px")), f[n] = w(parseFloat(gsap.getProperty(e, "x", "px")) / g[n] * 100 + gsap.getProperty(e, "xPercent")), t = e.getBoundingClientRect(), c[n] = t.left - (n ? r.right : r.left), r = t })), gsap.set(e, { xPercent: e => f[e] }), n = P() }, C = () => { b = h ? l.duration() * (y.offsetWidth / 2) / n : 0, h && u.forEach(((e, t) => { u[t] = a(l.labels["label" + t] + l.duration() * g[t] / 2 / n - b) })) }, E = (e, t, r) => { let n, a = e.length, o = 1e10, s = 0; for (; a--;)n = Math.abs(e[a] - t), n > r / 2 && (n = r - n), n < o && (o = n, s = a); return s }, T = () => { let t, r, o, s, i; for (l.clear(), t = 0; t < d; t++)r = e[t], o = f[t] / 100 * g[t], s = r.offsetLeft + o - p + c[0], i = s + g[t] * gsap.getProperty(r, "scaleX"), l.to(r, { xPercent: w((o - i) / g[t] * 100), duration: i / v }, 0).fromTo(r, { xPercent: w((o - i + n) / g[t] * 100) }, { xPercent: f[t], duration: (o - i + n - o) / v, immediateRender: !1 }, i / v).add("label" + t, s / v), u[t] = s / v; a = gsap.utils.wrap(0, l.duration()) }, I = e => { let t = l.progress(); l.progress(0, !0), L(), e && T(), C(), e && l.draggable ? l.time(u[m], !0) : l.progress(t, !0) }, q = () => I(!0); function R(e, t) { t = t || {}, Math.abs(e - m) > d / 2 && (e += e > m ? -d : d); let r = gsap.utils.wrap(0, d, e), n = u[r]; return n > l.time() != e > m && e !== m && (n += l.duration() * (e > m ? 1 : -1)), (n < 0 || n > l.duration()) && (t.modifiers = { time: a }), m = r, t.overwrite = !0, gsap.killTweensOf(o), 0 === t.duration ? l.time(a(n)) : l.tweenTo(n, t) } if (gsap.set(e, { x: 0 }), L(), T(), C(), window.addEventListener("resize", q), l.toIndex = (e, t) => R(e, t), l.closestIndex = e => { let t = E(u, l.time(), l.duration()); return e && (m = t, x = !1), t }, l.current = () => x ? l.closestIndex(!0) : m, l.next = e => R(l.current() + 1, e), l.previous = e => R(l.current() - 1, e), l.times = u, l.progress(1, !0).progress(0, !0), t.reversed && (l.vars.onReverseComplete(), l.reverse()), t.draggable && "function" == typeof Draggable) { o = document.createElement("div"); let t, r, s, i, d, p, g = gsap.utils.wrap(0, 1), c = () => l.progress(g(r + (s.startX - s.x) * t)), f = () => l.closestIndex(!0); "undefined" == typeof InertiaPlugin && console.warn("InertiaPlugin required for momentum-based scrolling and snapping. https://greensock.com/club"), s = Draggable.create(o, { trigger: e[0].parentNode, type: "x", onPressInit() { let e = this.x; gsap.killTweensOf(l), p = !l.paused(), l.pause(), r = l.progress(), I(), t = 1 / n, d = r / -t - e, gsap.set(o, { x: r / -t }) }, onDrag: c, onThrowUpdate: c, overshootTolerance: 0, inertia: !0, snap(e) { if (Math.abs(r / -t - this.x) < 10) return i + d; let n = -e * t * l.duration(), o = a(n), s = u[E(u, o, l.duration())] - o; return Math.abs(s) > l.duration() / 2 && (s += s < 0 ? l.duration() : -l.duration()), i = (n + s) / l.duration() / -t, i }, onRelease() { f(), s.isThrowing && (x = !0) }, onThrowComplete: () => { f(), p && l.play() } })[0], l.draggable = s } return l.closestIndex(!0), i = m, s && s(e[m], m), r = l, () => window.removeEventListener("resize", q) })), r }(e, { paused: !0, draggable: !0, center: !1, onChange: (t, r) => { s && s.classList.remove("active"); const n = t.nextElementSibling || e[0]; n.classList.add("active"), s = n, gsap.to(l, { y: -100 * r + "%", ease: "power3", duration: .45 }) } }); t.addEventListener("click", (() => d.next({ ease: "power3", duration: .725 }))), r.addEventListener("click", (() => d.previous({ ease: "power3", duration: .725 }))) }() }));
+  </script>
+
+  <script>
+    const fileInput = document.getElementById('fileInput');
+    const browseBtn = document.getElementById('browseBtn');
+    const previewImg = document.getElementById('previewImg');
+
+    browseBtn.addEventListener('click', () => {
+      fileInput.click(); // Open the file picker
+    });
+
+    fileInput.addEventListener('change', () => {
+      const file = fileInput.files[0];
+      if (!file) return;
+
+      const validTypes = ['image/png', 'image/jpeg', 'image/jpg'];
+      if (!validTypes.includes(file.type)) {
+        alert('Please upload a valid image file (PNG, JPG, JPEG).');
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        previewImg.src = e.target.result;
+        previewImg.classList.remove('hidden');
+      };
+      reader.readAsDataURL(file);
+    });
   </script>
 </body>
 
