@@ -214,6 +214,7 @@
         };
         reader.readAsDataURL(file);
       });
+    })();
   </script>
 
   <script crossorigin="anonymous" src="static/js/jquery-3.5.1.js" type="text/javascript"></script>
@@ -380,6 +381,7 @@
       splineLoaded(false, checkSlowDevice);
     });
   </script>
+  
   <!-- Spline Trigger -->
   <script>
     document.addEventListener("DOMContentLoaded", (function () { const e = document.querySelector("#spline-bg"), o = document.querySelectorAll("[data-spline-trigger='hide']"), t = document.querySelectorAll("[data-spline-trigger='show']"), n = document.querySelectorAll("[data-spline-trigger='pageload']"); let d = null; e.addEventListener("w-spline-load", (() => { console.log("Spline loaded successfully!"); const e = e => { const o = new KeyboardEvent("keydown", { key: e, code: `Digit${e}`, keyCode: e.charCodeAt(0), which: e.charCodeAt(0), bubbles: !0 }); document.dispatchEvent(o), console.log(`Key press '${e}' event dispatched`), setTimeout((() => { const o = new KeyboardEvent("keyup", { key: e, code: `Digit${e}`, keyCode: e.charCodeAt(0), which: e.charCodeAt(0), bubbles: !0 }); document.dispatchEvent(o), console.log(`Key release '${e}' event dispatched`) }), 100) }; o.forEach((o => { o.addEventListener("click", (() => { console.log("Button clicked, simulating key press for '5'..."), e("5"), d = "hide", console.log("Key press '5' event dispatched! Spline is now hidden.") })) })), t.forEach((o => { o.addEventListener("click", (() => { "hide" === d ? (console.log("Button clicked, simulating key press for '1'..."), e("1"), d = "show", console.log("Key press '1' event dispatched! Spline is now visible.")) : console.log("Show event blocked! 'Hide' must be triggered first.") })) })), n.forEach((o => { o.addEventListener("click", (() => { console.log("Pageload trigger clicked, always firing key press for '1'..."), e("1"), console.log("Key press '1' event dispatched from pageload!") })) })) })) }));
